@@ -1,0 +1,119 @@
+.calendar {
+    width: 260px;
+    height: 100%;
+    border: 1px solid #d6d9e1;
+    padding: 18px 11px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-clip: padding-box;
+}
+
+.calendar .w-100 {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.calendar table {
+    width: 100%;
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.calendar table tr:last-child td {
+    border-bottom: none;
+}
+
+.calendar .w-100 tr td {
+    font-size: 14px;
+    text-align: center;
+}
+
+.calendar table tr td {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    border: none;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 400;
+    color: #2a2c44;
+}
+
+.calendar table tr th,
+.calendar table tr td {
+    display: table-cell;
+    font-size: 13px;
+}
+
+.calendar .w-100 button {
+    height: 30px;
+    background: none;
+    color: #d6d9e1;
+    padding: 0;
+}
+
+.calendar button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    text-transform: capitalize;
+    cursor: pointer;
+    background: #474f9c;
+    border: none;
+    padding: 0 30px;
+    width: 100%;
+    height: 46px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-clip: padding-box;
+    transition: all ease-in 300ms;
+    text-transform: none;
+    overflow: visible;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.calendar table tr td.weekday {
+    font-size: 10px;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+
+.bold,
+.calendar table tr td.weekday {
+    font-weight: 700;
+}
+
+.calendar table tr.days td {
+    padding: 4px;
+}
+
+.calendar table tr td .day {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 11px;
+    color: #000;
+}
+
+.calendar table tr.days td:hover .day,
+.calendar table tr.days td.today .day {
+    background-color: #6c76d8;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 100%;
+    background-clip: padding-box;
+}
+
+.calendar table tr td .day.day-not-in-month {
+    color: rgba(130, 141, 155, 0.5);
+}
+
+.calendar .calender-title {
+    cursor: pointer;
+}

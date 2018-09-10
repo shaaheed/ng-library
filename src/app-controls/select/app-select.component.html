@@ -1,0 +1,24 @@
+<div class="control-container">
+    <label>{{label}}</label>
+    <div class="control select-control" [class.open]="open">
+        <span (click)="toggleDropdown($event)" class="selected-text">{{selectedDisplayValue}}</span>
+        <ul class="dropdown" *ngIf="open">
+            <li class="search" *ngIf="searchable">
+                <label>
+                    <i class="fa fa-search"></i>
+                </label>
+                <input #searchInput (input)="inputSearch($event)" placeholder="Search" autocomplete="off" spellcheck="false"
+                    autocorrect="off">
+                <i (click)="clearSearch(); searchInput.value = ''" class="search-clear fa fa-times-circle"></i>
+            </li>
+            <!-- <li class="group"> -->
+            <!-- <span class="title">Crickter</span> -->
+            <ul>
+                <li (click)="select(item); closeDropdown()" *ngFor="let item of items" [class.selected]="isSelected(item)">
+                    <span>{{getDisplayValue(item)}}</span>
+                </li>
+            </ul>
+            <!-- </li> -->
+        </ul>
+    </div>
+</div>

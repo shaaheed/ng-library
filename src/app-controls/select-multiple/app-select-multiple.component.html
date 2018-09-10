@@ -1,0 +1,35 @@
+<div class="control-container">
+    <label>{{label}}</label>
+    <div class="control select-control multiple" [class.open]="open" [class.has-items]="hasSelectedItems()">
+        <ul (click)="toggleDropdown($event)" class="selected-text" [class.multiple-select]="hasSelectedItems()">
+            <li *ngFor="let selectedItem of selectedItems">
+                <a>
+                    {{getDisplayValue(selectedItem)}}
+                    <i class="fa fa-times"></i>
+                </a>
+            </li>
+            <li *ngIf="!hasSelectedItems()"><a>{{placeholder}}</a></li>
+        </ul>
+        <ul class="dropdown" *ngIf="open">
+            <li class="search" *ngIf="searchable">
+                <label>
+                    <i class="fa fa-search"></i>
+                </label>
+                <input #searchInput (input)="inputSearch($event)" placeholder="Search" autocomplete="off" spellcheck="false"
+                    autocorrect="off">
+                <i *ngIf="searchInput.value" (click)="clearSearch(); searchInput.value = ''" class="search-clear fa fa-times-circle"></i>
+            </li>
+            <!-- <li class="group"> -->
+            <!-- <span class="title">Crickter</span> -->
+            <ul>
+                <li (click)="select(item); closeDropdown()" *ngFor="let item of items" [class.selected]="isSelected(item)">
+                    <a>
+                        <i *ngIf="isSelected(item)" class="fa fa fa-check"></i>
+                        {{getDisplayValue(item)}}
+                    </a>
+                </li>
+            </ul>
+            <!-- </li> -->
+        </ul>
+    </div>
+</div>
