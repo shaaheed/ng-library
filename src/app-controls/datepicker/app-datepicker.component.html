@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <td><button (click)="previous()"><i class="fa fa-chevron-left"></i></button></td>
-                <td (click)="changeMode()" class="calender-title"><span class="month-year">{{calenderTitle}}</span></td>
+                <td (click)="changeMode()" class="calender-title"><span class="month-year">{{calendarTitle}}</span></td>
                 <td><button (click)="next()"><i class="fa fa-chevron-right"></i></button></td>
             </tr>
         </thead>
@@ -12,19 +12,28 @@
         <thead>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngIf="mode === 'day'">
                 <td *ngFor="let dayTitle of titles" class="weekday" [class.weekend]="dayTitle.isWeekend">{{dayTitle.title}}</td>
             </tr>
-            <ng-container *ngIf="mode === 1">
+            <ng-container *ngIf="mode === 'day'">
                 <tr class="days" *ngFor="let row of days">
-                    <td [class.today]="day.isToday" *ngFor="let day of row">
-                        <div (click)="selectDay(day)" class="day" [class.day-not-in-month]="!day.isDayInMonth">{{day.dayNumber}}</div>
+                    <td [class.today]="d.isToday" *ngFor="let d of row">
+                        <div (click)="selectDay(d)" class="day" [class.day-not-in-month]="!d.isDayInMonth">{{d.dayNumber}}</div>
                     </td>
                 </tr>
             </ng-container>
-            <ng-container *ngIf="mode === 2">
-                <tr>
-                    <td></td>
+            <ng-container *ngIf="mode === 'month'">
+                <tr class="days" *ngFor="let row of months">
+                    <td [class.today]="m.isCurrentMonth" *ngFor="let m of row">
+                        <div (click)="selectMonth(m)" class="day" [class.day-not-in-month]="!m.isMonthInYear">{{m.shortName}}</div>
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="mode === 'year'">
+                <tr class="days" *ngFor="let row of years">
+                    <td [class.today]="y.isCurrentYear" *ngFor="let y of row">
+                        <div (click)="selectYear(y)" class="day">{{y.year}}</div>
+                    </td>
                 </tr>
             </ng-container>
         </tbody>

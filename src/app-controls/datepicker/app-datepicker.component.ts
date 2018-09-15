@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit, ElementRef } from '@angular/core';
 import { DropdownAppControl } from '../dropdown-app-control';
-import { Calender } from './calender';
+import { Calendar, WEEKDAYS, MODE } from './calendar';
 
 @Component({
   selector: 'app-datepicker',
@@ -12,42 +12,28 @@ export class AppDatePickerComponent extends DropdownAppControl implements OnInit
 
   @Input() placeholder: string;
   @Input() selectedDate = new Date();
-  @Input() firstDay = 'fr';
-  @Input() weekends = ['fr', 'st']
+  @Input() firstDay = WEEKDAYS.FRIDAY;
+  @Input() weekends = [WEEKDAYS.FRIDAY, WEEKDAYS.SATURDAY];
 
   titles = [];
   days = [];
-  calenderTitle = '';
+  months = [];
+  years = [];
+  calendarTitle;
+  mode;
 
-  // mode 1 = day
-  // mode 2 = month
-  // mode 3 = year
-  mode = 1;
+  private calendar: Calendar;
 
-  // full monthe
-  private fullMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-    'September', 'October', 'November', 'December'];
-
-  private shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
-    'Sep', 'Oct', 'Nov', 'Dec'];
-
-  private calender: Calender;
-  private currentMonth;
-  private currentYear;
-
-  private tempCurrentMonth;
-  private tempCurrentYear;
-
-  private months: string[][] = [];
+  constructor(ref: ElementRef) {
+    super(ref);
+  }
 
   ngOnInit() {
-    this.calender = new Calender();
-    this.calender.setFirstDay('mo');
-    this.calender.setCurrentDate(new Date());
+    this.calendar = new Calendar();
+    this.calendar.setFirstDay(WEEKDAYS.MONDAY);
+    this.calendar.refresh(new Date());
     this.refresh();
-
-    this.tempCurrentMonth = this.currentMonth;
-    this.tempCurrentYear = this.currentYear;
+    console.log(this.mode);
   }
 
   openDropdown(e) {
@@ -58,44 +44,44 @@ export class AppDatePickerComponent extends DropdownAppControl implements OnInit
 
   selectDay(day) {
     console.log('day', day);
+    this.calendar.refreshWithDay(day);
+    console.log('selected date', this.calendar.getCurrentDate());
+  }
+
+  selectMonth(month) {
+    this.calendar.changeMode(MODE.DAY);
+    this.calendar.refreshWithMonth(month);
+    this.refresh();
+  }
+
+  selectYear(year) {
+    this.calendar.changeMode(MODE.MONTH);
+    this.calendar.refreshWithYear(year);
+    this.refresh();
   }
 
   changeMode() {
-    this.mode++;
-    this.mode = this.mode > 4 ? 1 : this.mode;
+    this.calendar.toggleMode();
+    this.refresh();
   }
 
   next() {
-    if (this.mode === 1) {
-      this.calender.next();
-      this.refresh();
-    }
+    this.calendar.next();
+    this.refresh();
   }
 
   previous() {
-    if (this.mode === 1) {
-      this.calender.previous();
-      this.refresh();
-    }
-  }
-
-  private generateMonths() {
-    
+    this.calendar.previous();
+    this.refresh();
   }
 
   private refresh() {
-    this.titles = this.calender.getTitles();
-    this.days = this.calender.getDays();
-    const _currentDate = this.calender.getCurrentDate();
-    this.currentMonth = _currentDate.getMonth();
-    this.currentYear = _currentDate.getFullYear();
-    switch (this.mode) {
-      case 1:
-        this.calenderTitle = `${this.fullMonths[this.currentMonth]}, ${this.currentYear}`;
-        break;
-      default:
-        this.calenderTitle = `${this.fullMonths[this.currentMonth]}, ${this.currentYear}`;
-    }
+    this.titles = this.calendar.getTitles();
+    this.days = this.calendar.getDays();
+    this.years = this.calendar.getYears();
+    this.months = this.calendar.getMonths();
+    this.calendarTitle = this.calendar.getCalendarTitle();
+    this.mode = this.calendar.getMode();
   }
 
 
