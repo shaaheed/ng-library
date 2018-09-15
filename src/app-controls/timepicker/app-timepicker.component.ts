@@ -72,7 +72,7 @@ export class AppTimePickerComponent extends DropdownAppControl implements OnInit
     this.changeMode(this.mode);
   }
 
-  private changeMode(mode) {
+  changeMode(mode) {
     this.mode = mode;
     if (this.mode === MODE.HOUR) {
       this.makeHourValues();
