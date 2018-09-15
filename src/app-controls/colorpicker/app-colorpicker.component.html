@@ -1,0 +1,124 @@
+<div class="color-picker">
+    <div style="position: relative;">
+        <div class="sketch-picker">
+            <div class="color-container">
+                <div class="color-section-1" style="background: rgb(0, 255, 128)">
+                    <div class="color-section-2" style="background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0))">
+                        <div class="color-section-3" style="background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0))"></div>
+                        <div class="picker-hand-outer">
+                            <div class="picker-hand-inner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="color-options">
+                <div class="hue-opacity">
+                    <div class="hue">
+                        <div class="hue-colors">
+                            <div style="margin: 0px 2px; position: relative; height: 100%;">
+                                <div class="hue-picker-hand">
+                                    <div class="hue-picker-hand-inner"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="opacity">
+                        <div (click)="opacityPickerClick($event)" class="opacity-outer">
+                            <div class="opacity-inner">
+                                <div class="opacity-transparent"></div>
+                            </div>
+                            <div class="opacity-gradient"></div>
+                            <div class="opacity-picker">
+                                <div class="inner" [ngStyle]="{left: opacity + '%'}">
+                                    <div draggable="true" class="opacity-picker-hand hand"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="selected-color-box">
+                    <!-- <div style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZhw1gGGYhAGBZIA/nYDCgBDAm9BGDWAAJyRCgLaBCAAgXwixzAS0pgAAAABJRU5ErkJggg==&quot;) left center;"></div> -->
+                    <div class="color"></div>
+                </div>
+            </div>
+            <div class="color-code-options">
+                <div class="hex-code">
+                    <div class="code-box">
+                        <input class="code-value" value="194D33">
+                        <span class="code-label">hex</span></div>
+                </div>
+                <div class="rgb-box">
+                    <div class="code-box">
+                        <input class="code-value" value="25">
+                        <span class="code-label">r</span>
+                    </div>
+                </div>
+                <div class="rgb-box">
+                    <div class="code-box">
+                        <input class="code-value" value="77">
+                        <span class="code-label">g</span>
+                    </div>
+                </div>
+                <div class="rgb-box">
+                    <div class="code-box">
+                        <input class="code-value" value="51">
+                        <span class="code-label">b</span>
+                    </div>
+                </div>
+                <div class="rgb-box">
+                    <div class="code-box">
+                        <input class="code-value" value="100">
+                        <span class="code-label">a</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flexbox-fix" style="margin: 0px -10px; padding: 10px 0px 0px 10px; border-top: 1px solid rgb(238, 238, 238); display: flex; flex-wrap: wrap; position: relative;">
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#D0021B" tabindex="0" style="background: rgb(208, 2, 27); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#F5A623" tabindex="0" style="background: rgb(245, 166, 35); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#F8E71C" tabindex="0" style="background: rgb(248, 231, 28); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#8B572A" tabindex="0" style="background: rgb(139, 87, 42); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#7ED321" tabindex="0" style="background: rgb(126, 211, 33); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#417505" tabindex="0" style="background: rgb(65, 117, 5); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#BD10E0" tabindex="0" style="background: rgb(189, 16, 224); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#9013FE" tabindex="0" style="background: rgb(144, 19, 254); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#4A90E2" tabindex="0" style="background: rgb(74, 144, 226); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#50E3C2" tabindex="0" style="background: rgb(80, 227, 194); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#B8E986" tabindex="0" style="background: rgb(184, 233, 134); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#000000" tabindex="0" style="background: rgb(0, 0, 0); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#4A4A4A" tabindex="0" style="background: rgb(74, 74, 74); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#9B9B9B" tabindex="0" style="background: rgb(155, 155, 155); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+                <div style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"><span>
+                        <div title="#FFFFFF" tabindex="0" style="background: rgb(255, 255, 255); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"></div>
+                    </span></div>
+            </div>
+        </div>
+    </div>
+</div>
