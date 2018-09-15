@@ -5,7 +5,7 @@
             <li *ngFor="let selectedItem of selectedItems">
                 <a>
                     {{getDisplayValue(selectedItem)}}
-                    <i class="fa fa-times"></i>
+                    <i class="fa fa-times" (click)="remove(selectedItem)"></i>
                 </a>
             </li>
             <li *ngIf="!hasSelectedItems()"><a>{{placeholder}}</a></li>
@@ -15,7 +15,7 @@
                 <label>
                     <i class="fa fa-search"></i>
                 </label>
-                <input #searchInput (input)="inputSearch($event)" placeholder="Search" autocomplete="off" spellcheck="false"
+                <input #searchInput (input)="search($event.target.value)" placeholder="Search" autocomplete="off" spellcheck="false"
                     autocorrect="off">
                 <i *ngIf="searchInput.value" (click)="clearSearch(); searchInput.value = ''" class="search-clear fa fa-times-circle"></i>
             </li>

@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppSelectMultipleComponent } from './app-select-multiple.component';
+import { AppMultiSelectComponent } from './app-multi-select.component';
 
 
 @NgModule({
   declarations: [
-    AppSelectMultipleComponent
+    AppMultiSelectComponent
   ],
   imports: [
     BrowserModule
   ],
   exports: [
-    AppSelectMultipleComponent
+    AppMultiSelectComponent
   ]
 })
-export class AppSelectMultipleModule { }
+export class AppMultiSelectModule { }

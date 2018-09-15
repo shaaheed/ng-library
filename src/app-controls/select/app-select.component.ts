@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit, ElementRef } from '@angular/core';
 import { SelectAppControl } from '../select-app-control';
 
 @Component({
@@ -9,30 +9,17 @@ import { SelectAppControl } from '../select-app-control';
 })
 export class AppSelectComponent extends SelectAppControl implements OnInit {
 
-  @Input() items: any[] = [];
   @Input() placeholder: string;
   selectedValue: any;
   selectedDisplayValue: any;
 
-  private originalItems: any[] = [];
+  constructor(ref: ElementRef) {
+    super(ref);
+  }
 
   ngOnInit() {
-    this.originalItems = JSON.parse(JSON.stringify(this.items));
+    this.init();
     this.selectedDisplayValue = this.placeholder || 'Select';
-  }
-
-  clearSearch() {
-    this.items = this.originalItems;
-  }
-
-  inputSearch(e) {
-    let searchTerm = e.target.value;
-    if (searchTerm === '' || searchTerm === null || searchTerm === undefined) {
-      this.items = this.originalItems;
-    } else {
-      searchTerm = searchTerm.toLowerCase();
-      this.items = this.originalItems.filter(x => x[this.displayProp].toLowerCase().indexOf(searchTerm) > -1);
-    }
   }
 
   select(item) {
@@ -41,12 +28,12 @@ export class AppSelectComponent extends SelectAppControl implements OnInit {
       if (value !== undefined) {
         this.selectedValue = value;
       }
-
       const displayValue = item[this.displayProp];
       if (displayValue !== undefined) {
         this.selectedDisplayValue = displayValue;
       }
     }
+    this.clearSearch();
   }
 
   getDisplayValue(item) {

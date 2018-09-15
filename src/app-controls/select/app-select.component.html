@@ -7,9 +7,9 @@
                 <label>
                     <i class="fa fa-search"></i>
                 </label>
-                <input #searchInput (input)="inputSearch($event)" placeholder="Search" autocomplete="off" spellcheck="false"
-                    autocorrect="off">
-                <i (click)="clearSearch(); searchInput.value = ''" class="search-clear fa fa-times-circle"></i>
+                <input #searchInput (input)="search($event.target.value)" placeholder="Search" autocomplete="off"
+                    spellcheck="false" autocorrect="off">
+                <i *ngIf="searchInput.value" (click)="clearSearch(); searchInput.value = ''" class="search-clear fa fa-times-circle"></i>
             </li>
             <!-- <li class="group"> -->
             <!-- <span class="title">Crickter</span> -->

@@ -1,15 +1,21 @@
 <div class="l-container box">
     <div class="group-section">
         <h1 class="heading-title">
-            <em>Controls</em>
+            <em>Angular Resuable Components Demo</em>
         </h1>
         <div class="flex-container form-elements">
             <div class="fex-item">
                 <div class="form-row">
                     <app-input label="Label Text" placeholder="Placeholder Text"></app-input>
-                    <app-select-multiple [items]="selectItems" searchable="true" label="Multiple Select" placeholder="Placeholder"></app-select-multiple>
+                    <app-multi-select [items]="selectItems" searchable="true" label="Multiple Select" placeholder="Placeholder"></app-multi-select>
                     <app-select [items]="selectItems" searchable="true" label="Single Select" placeholder="Placeholder"></app-select>
                     <app-datepicker [firstDay]="'st'" label="Single Select" placeholder="Placeholder"></app-datepicker>
+                    <br>
+                    <app-progress min="0" max="100" now="25"></app-progress>
+                    <br>
+                    <app-timepicker></app-timepicker>
+                    <br>
+                    <!-- <app-colorpicker></app-colorpicker> -->
                 </div>
             </div>
         </div>
