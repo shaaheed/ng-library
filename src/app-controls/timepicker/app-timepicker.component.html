@@ -1,0 +1,25 @@
+<div class="timepicker">
+    <header class="timepicker-header">
+        <div class="timepicker-dial">
+            <div class="timepicker-dial-time">
+                <span (click)="changeMode('h')" class="timepicker-dial-item" [class.timepicker-dial-item-active]="mode === 'h'">{{selectedHourString}}</span>:<span (click)="changeMode('m')" class="timepicker-dial-item" [class.timepicker-dial-item-active]="mode === 'm'">{{selectedMinuteString}}</span>
+            </div>
+            <div class="timepicker-dial-period">
+                <span (click)="changeMeridian('am')" class="timepicker-dial-item" [class.timepicker-dial-item-active]="selectedMeridian === 'am'">AM</span>
+                <span (click)="changeMeridian('pm')" class="timepicker-dial-item" [class.timepicker-dial-item-active]="selectedMeridian === 'pm'">PM</span>
+            </div>
+        </div>
+    </header>
+    <div class="clock-face">
+        <div class="clock-face-container">
+            <div (click)="selectValue(v)" *ngFor="let v of values" class="clock-face-number clock-face-number-outer"
+                [ngStyle]="{transform: 'rotateZ(' + v.rotateDeg + 'deg) translateX(-50%)'}">
+                <span *ngIf="v.bigDial" [class.active]="v.selected" [ngStyle]="{transform: 'rotateZ(' + (-v.rotateDeg) +'deg)'}">
+                    {{v.number}}
+                </span>
+                <span *ngIf="!v.bigDial" class="small-dial" [ngStyle]="{transform: 'rotateZ(' + (-v.rotateDeg) +'deg)'}">.</span>
+            </div>
+        </div>
+        <span [class.clock-face-clock-hand-minute]="mode === 'm'" class="clock-face-clock-hand" [ngStyle]="{transform: 'rotate(' + handRotateDeg + 'deg)'}"></span>
+    </div>
+</div>

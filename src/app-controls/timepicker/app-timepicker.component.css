@@ -1,0 +1,132 @@
+.timepicker {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 1px solid #d6d9e1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-clip: padding-box;
+    flex-direction: column;
+}
+
+.timepicker-header {
+    background-color: #6c76d8;
+    padding: 15px 30px;
+    width: 100%;
+}
+
+.timepicker-dial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timepicker-dial-time {
+    line-height: normal;
+    font-size: 50px;
+    color: rgba(255,255,255,.5);
+    font-family: Roboto,sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.timepicker-dial-item {
+    cursor: pointer;
+    color: rgba(255,255,255,.5);
+    font-family: Roboto,sans-serif;
+}
+
+.timepicker-dial-item-active {
+    color: #fff;
+}
+
+.timepicker-dial-period {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Roboto,sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.clock-face {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+.clock-face-container {
+    margin-left: -2px;
+}
+
+.clock-face-number-outer {
+    height: calc(290px / 2 - 20px);
+}
+
+.clock-face-number {
+    position: absolute;
+    transform-origin: 0 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.clock-face-number>span {
+    user-select: none;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50%;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+}
+
+.clock-face-number>span.small-dial {
+    height: 2px;
+    width: 2px;
+    margin-top: 30px;
+}
+
+.clock-face-number-outer>span {
+    font-size: 12px;
+    color: #6c6c6c;
+}
+
+.clock-face-clock-hand {
+    height: 90px;
+    width: 2px;
+    background-color: #6c76d8;
+    transform-origin: 0 100%;
+    position: absolute;
+    top: calc(50% - 90px);
+    z-index: 1;
+}
+
+.clock-face-clock-hand:before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background-color: #6c76d8;
+    border: 2px solid #6c76d8;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 5px);
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
